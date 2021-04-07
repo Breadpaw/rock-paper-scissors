@@ -7,7 +7,12 @@
 
 */
 
-console.log("Function to run is playRound()");
+// get the computer's selection
+const computerSelection = computerPlay();
+// get the player's selection
+const playerSelection = prompt("What'll it be, muchacho?");
+
+playRound(computerSelection, playerSelection);
 
 function computerPlay() {
   // array with options
@@ -21,11 +26,6 @@ function computerPlay() {
 }
 
 function playRound(computerSelection, playerSelection) {
-  // get the computer's selection
-  const computerSelection = computerPlay;
-  // get the player's selection
-  const playerSelection = prompt("What'll it be, muchacho?");
-
   console.log(
     "Player: " + playerSelection + " | Computer: " + computerSelection
   );
