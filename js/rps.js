@@ -7,6 +7,9 @@
 
 */
 
+const computerSelection = computerPlay;
+const playerSelection = prompt("What'll it be, muchacho?");
+
 function computerPlay() {
   // array with options
   let options = ["rock", "paper", "scissors"];
@@ -16,4 +19,10 @@ function computerPlay() {
   let randNum = Math.round(Math.random() * 2);
 
   return options[randNum];
+}
+
+function playRound (computerSelection, playerSelection) {
+
+  console.log("Player: " + playerSelection + " | Computer: " + computerSelection);
+
 }
