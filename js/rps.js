@@ -90,8 +90,16 @@ function playRound() {
         winOrLose("win");
         break;
       }
+    default:
+      console.log("Yeah...that's not a valid option.");
+      return("Yeah...that's not a valid option.")
   }
 }
 
 // Play the round
-playRound();
+// playRound();
+
+// Play 5 rounds
+for(let i = 0; i < 5 ; i++) {
+  playRound();
+}
