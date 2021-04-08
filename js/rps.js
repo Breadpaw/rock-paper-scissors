@@ -62,7 +62,7 @@ function playRound() {
   const playerSelection = userPlay();
 
   // in case player selected "cancel"
-  if(!playerSelection) {
+  if(playerSelection = null) {
     console.log("Well...if you don't wanna play, that's fine I guess...-sniff-");
     return("Well...if you don't wanna play, that's fine I guess...-sniff-");
   }
