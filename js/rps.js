@@ -61,6 +61,12 @@ function playRound() {
   const computerSelection = computerPlay();
   const playerSelection = userPlay();
 
+  // in case player selected "cancel"
+  if(!playerSelection) {
+    console.log("Well...if you don't wanna play, that's fine I guess...-sniff-");
+    return("Well...if you don't wanna play, that's fine I guess...-sniff-");
+  }
+
   console.log(
     "Player: " + playerSelection + " | Computer: " + computerSelection
   );
