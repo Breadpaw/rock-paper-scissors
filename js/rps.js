@@ -1,18 +1,10 @@
 /*
 
-- make function computerPlay that returns rock, paper or scissors randomly
-- playerselection
-- computerselection
+computerPlay
 
+Randomly picks rock, paper or scissors and returns a String value
 
 */
-
-// get the computer's selection
-const computerSelection = computerPlay();
-// get the player's selection
-const playerSelection = prompt("What'll it be, muchacho?");
-
-playRound(computerSelection, playerSelection);
 
 function computerPlay() {
   // array with options
@@ -25,8 +17,81 @@ function computerPlay() {
   return options[randNum];
 }
 
+/*
+
+userPlay gets the user Input and returns an lower case String
+
+*/
+
+function userPlay() {
+  let userInput = prompt("What'll it be, muchacho?").toLowerCase();
+
+  return userInput;
+}
+
+/*
+
+winOrLose
+
+takes a String argument, evaluates Win or Lose and returns a winning or losing String
+
+*/
+
+function winOrLose(x) {
+  if (x == "win") {
+    console.log("You win. You are awesome.");
+    return "You win. You are awesome.";
+  } else {
+    console.log("You tried. You failed. Tough cookie.");
+    return "You tried. You failed. Tough cookie.";
+  }
+}
+
+/*
+
+playRound
+
+Asks input from the user and computes that of the computer and compares them, then calls the winOrLose function
+
+returns nothing
+
+*/
+
 function playRound(computerSelection, playerSelection) {
+  const computerSelection = computerPlay();
+  const playerSelection = userPlay();
+
   console.log(
     "Player: " + playerSelection + " | Computer: " + computerSelection
   );
+
+  switch (playerSelection) {
+    case computerSelection:
+      console.log("TIE! Play again!");
+      break;
+    case "rock":
+      if (computerSelection == "paper") {
+        winOrLose("win");
+      } else {
+        winOrLose("lose");
+      }
+      break;
+    case "paper":
+      if (computerSelection == "rock") {
+        winOrLose("win");
+      } else {
+        winOrLose("lose");
+      }
+      break;
+    case "scissors":
+      if (computerSelection == "rock") {
+        winOrLose("lose");
+      } else {
+        winOrLose("win");
+        break;
+      }
+  }
 }
+
+// Play the round
+playRound(computerSelection, playerSelection);
