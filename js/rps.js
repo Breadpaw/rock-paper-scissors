@@ -57,7 +57,7 @@ returns nothing
 
 */
 
-function playRound(computerSelection, playerSelection) {
+function playRound() {
   const computerSelection = computerPlay();
   const playerSelection = userPlay();
 
