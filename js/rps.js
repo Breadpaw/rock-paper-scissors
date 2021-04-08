@@ -94,4 +94,4 @@ function playRound() {
 }
 
 // Play the round
-playRound(computerSelection, playerSelection);
+playRound();
