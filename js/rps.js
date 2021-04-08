@@ -24,9 +24,19 @@ userPlay gets the user Input and returns an lower case String
 */
 
 function userPlay() {
-  let userInput = prompt("What'll it be, muchacho?").toLowerCase();
+  let userInput;
 
-  return userInput;
+  // in case player selected "cancel"
+  if ((userInput = prompt("What'll it be, muchacho?") == null)) {
+    console.log(
+      "Well...if you don't wanna play, that's fine I guess...-sniff-"
+    );
+    return "Well...if you don't wanna play, that's fine I guess...-sniff-";
+  } else {
+    userInput = userInput.toLowerCase();
+
+    return userInput;
+  }
 }
 
 /*
@@ -61,12 +71,6 @@ function playRound() {
   const computerSelection = computerPlay();
   const playerSelection = userPlay();
 
-  // in case player selected "cancel"
-  if(playerSelection = null) {
-    console.log("Well...if you don't wanna play, that's fine I guess...-sniff-");
-    return("Well...if you don't wanna play, that's fine I guess...-sniff-");
-  }
-
   console.log(
     "Player: " + playerSelection + " | Computer: " + computerSelection
   );
@@ -98,7 +102,7 @@ function playRound() {
       }
     default:
       console.log("Yeah...that's not a valid option.");
-      return("Yeah...that's not a valid option.")
+      return "Yeah...that's not a valid option.";
   }
 }
 
@@ -106,6 +110,6 @@ function playRound() {
 // playRound();
 
 // Play 5 rounds
-for(let i = 0; i < 5 ; i++) {
+for (let i = 0; i < 5; i++) {
   playRound();
 }
