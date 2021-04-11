@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    background:black;
+
+    font-family:'zapfino';
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.container {
+
+    width: 1400px;
+    height: 787px; /* can I make this a calculated value? */
+
+
+    background:url("../img/jd.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+}

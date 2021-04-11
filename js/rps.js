@@ -110,6 +110,6 @@ function playRound() {
 // playRound();
 
 // Play 5 rounds
-for (let i = 0; i < 5; i++) {
-  playRound();
-}
+// for (let i = 0; i < 5; i++) {
+//   playRound();
+// }
