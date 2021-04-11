@@ -22,12 +22,14 @@ body {
     width: 1400px;
     height: 787px; /* can I make this a calculated value? */
 
+    border-radius: 10px;
+
     background:url("../img/jd.jpg");
     background-size: 102%; /* slightly oversized bc of borde radius*/
     background-repeat: no-repeat;
     background-position: -10px -10px;
 
-    border-radius: 10px;
+    color:whitesmoke;
 
     display: flex;
     flex-direction: row;
