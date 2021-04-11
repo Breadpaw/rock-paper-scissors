@@ -50,9 +50,11 @@ takes a String argument, evaluates Win or Lose and returns a winning or losing S
 function winOrLose(x) {
   if (x == "win") {
     console.log("You win. You are awesome.");
+    alert("Curse ye! Thy are victorious!");
     return "You win. You are awesome.";
   } else {
     console.log("You tried. You failed. Tough cookie.");
+    alert("Vacate these premises, you scallywag, I have vanquished you!");
     return "You tried. You failed. Tough cookie.";
   }
 }
@@ -106,6 +108,15 @@ function playRound(playerSelection) {
   }
 }
 
-export {
-  playRound 
-}
+/**
+ * THIS IS WHERE THE DOM STARTS
+ * Add listener events to all img objects, add the function
+ */
+
+ const images = document.querySelectorAll("img");
+
+ images.forEach((image) => {
+     image.addEventListener("click", (e) => {
+         playRound(e.target.id);
+     })
+ })
