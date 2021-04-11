@@ -67,9 +67,9 @@ returns nothing
 
 */
 
-function playRound(playerChoice) {
+function playRound(playerSelection) {
   const computerSelection = computerPlay();
-  const playerSelection = userPlay();
+  // const playerSelection = userPlay();
 
   console.log(
     "Player: " + playerSelection + " | Computer: " + computerSelection
@@ -106,3 +106,6 @@ function playRound(playerChoice) {
   }
 }
 
+export {
+  playRound 
+}
