@@ -22,9 +22,31 @@ body {
     width: 1400px;
     height: 787px; /* can I make this a calculated value? */
 
-
     background:url("../img/jd.jpg");
-    background-size: 100%;
+    background-size: 102%; /* slightly oversized bc of borde radius*/
     background-repeat: no-repeat;
-    background-position: 0px 0px;
+    background-position: -10px -10px;
+
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    width: 30%;
+    display: flex;
+    
+    flex-direction: column;
+    justify-content:space-around;
+    align-items:flex-start;
+}
+.right {
+    width: 70%;
+}
+
+img {
+    margin: 0 auto;
+    display: block;
+    width: 40%;
 }
