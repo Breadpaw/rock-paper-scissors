@@ -67,7 +67,7 @@ returns nothing
 
 */
 
-function playRound() {
+function playRound(playerChoice) {
   const computerSelection = computerPlay();
   const playerSelection = userPlay();
 
@@ -106,10 +106,3 @@ function playRound() {
   }
 }
 
-// Play the round
-// playRound();
-
-// Play 5 rounds
-// for (let i = 0; i < 5; i++) {
-//   playRound();
-// }
