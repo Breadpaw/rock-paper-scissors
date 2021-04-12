@@ -118,28 +118,37 @@ function playRound(playerSelection) {
 
 const images = document.querySelectorAll("img");
 
+/**
+ * add event listener to all images
+ */
 images.forEach((image) => {
-  image.addEventListener("click", function myFunction(e) {
-    let res = playRound(e.target.id);
-
-    // Update Joseph's response
-    let response = document.querySelector("#response");
-    response.textContent = res;
-
-    // Update the score board
-    let playerScore = document.querySelector("#player-score");
-    let josephScore = document.querySelector("#joseph-score");
-
-    playerScore.textContent = playerWins;
-    josephScore.textContent = computerWins;
-
-    // Deactivate the game controls if anyone won
-    if(anyoneWon()) {
-      images.forEach((element) => {
-        element.removeEventListener('click', myFunction);
-        element.style.cursor = "unset";
-      })
-    }
-
-  });
+  image.addEventListener("click", weaponClick(e))
 });
+
+function weaponClick(e) {
+  let res = playRound(e.target.id);
+
+  // Update Joseph's response
+  let response = document.querySelector("#response");
+  response.textContent = res;
+
+  // Update the score board
+  let playerScore = document.querySelector("#player-score");
+  let josephScore = document.querySelector("#joseph-score");
+
+  playerScore.textContent = playerWins;
+  josephScore.textContent = computerWins;
+
+  // Deactivate the game controls if anyone won
+  if(anyoneWon()) {
+    endGame();
+  }
+};
+
+function endGame(){
+  images.forEach((element) => {
+    element.removeEventListener('click', myFunction);
+    element.style.cursor = "unset";
+  });
+}
+
