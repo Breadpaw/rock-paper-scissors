@@ -61,8 +61,8 @@ function winOrLose(x) {
  * check if anyone won the match
  */
 
-function anyoneWon(){
-  if(playerWon) {
+function anyoneWon() {
+  if (playerWon) {
     return true;
   } else if (josephWon) {
     return true;
@@ -122,33 +122,28 @@ const images = document.querySelectorAll("img");
  * add event listener to all images
  */
 images.forEach((image) => {
-  image.addEventListener("click", weaponClick(e))
-});
+  image.addEventListener("click", function weaponClick(e) {
+    let res = playRound(e.target.id);
 
-function weaponClick(e) {
-  let res = playRound(e.target.id);
+    // Update Joseph's response
+    let response = document.querySelector("#response");
+    response.textContent = res;
 
-  // Update Joseph's response
-  let response = document.querySelector("#response");
-  response.textContent = res;
+    // Update the score board
+    let playerScore = document.querySelector("#player-score");
+    let josephScore = document.querySelector("#joseph-score");
 
-  // Update the score board
-  let playerScore = document.querySelector("#player-score");
-  let josephScore = document.querySelector("#joseph-score");
+    playerScore.textContent = playerWins;
+    josephScore.textContent = computerWins;
 
-  playerScore.textContent = playerWins;
-  josephScore.textContent = computerWins;
-
-  // Deactivate the game controls if anyone won
-  if(anyoneWon()) {
-    endGame();
-  }
-};
-
-function endGame(){
-  images.forEach((element) => {
-    element.removeEventListener('click', myFunction);
-    element.style.cursor = "unset";
+    // Deactivate the game controls if anyone won
+    // TODO WHY DOES THIS ONLY WORK ON ONE IMAGE?
+    if (anyoneWon()) {
+      images.forEach((element) => {
+        element.removeEventListener("click", weaponClick);
+        console.log("removed listener from" + element);
+        element.style.cursor = "unset";
+      });
+    }
   });
-}
-
+});
