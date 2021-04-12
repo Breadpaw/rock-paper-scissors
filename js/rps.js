@@ -3,6 +3,9 @@
 let playerWins = 0;
 let computerWins = 0;
 
+let playerWon = false;
+let josephWon = false;
+
 /*
 
 computerPlay
@@ -37,6 +40,7 @@ function winOrLose(x) {
     if (playerWins < 5) {
       return "Cometh hither and I'll bite your leg off!";
     } else {
+      playerWon = true;
       return "Curse ye! Thy are victorious!";
     }
   }
@@ -47,8 +51,23 @@ function winOrLose(x) {
     if (computerWins < 5) {
       return "I outclassed thee, rapscallion! Bringeth it!";
     } else {
+      josephWon = true;
       return "Make off, thy scallywag, I have triumphed!";
     }
+  }
+}
+
+/**
+ * check if anyone won the match
+ */
+
+function anyoneWon(){
+  if(playerWon) {
+    return true;
+  } else if (josephWon) {
+    return true;
+  } else {
+    return false;
   }
 }
 
@@ -100,7 +119,7 @@ function playRound(playerSelection) {
 const images = document.querySelectorAll("img");
 
 images.forEach((image) => {
-  image.addEventListener("click", (e) => {
+  image.addEventListener("click", function myFunction(e) {
     let res = playRound(e.target.id);
 
     // Update Joseph's response
@@ -113,6 +132,14 @@ images.forEach((image) => {
 
     playerScore.textContent = playerWins;
     josephScore.textContent = computerWins;
+
+    // Deactivate the game controls if anyone won
+    if(anyoneWon()) {
+      images.forEach((element) => {
+        element.removeEventListener('click', myFunction);
+        element.style.cursor = "unset";
+      })
+    }
 
   });
 });
