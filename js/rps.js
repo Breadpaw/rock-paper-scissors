@@ -1,3 +1,8 @@
+// Variables
+
+let playerWins = 0;
+let computerWins = 0;
+
 /*
 
 computerPlay
@@ -27,11 +32,23 @@ takes a String argument, evaluates Win or Lose and returns a winning or losing S
 
 function winOrLose(x) {
   if (x == "win") {
-    alert("Curse ye! Thy are victorious!");
-    return "You win. You are awesome.";
-  } else {
-    alert("Make off, thy scallywag, I have vanquished ye!");
-    return "You tried. You failed. Tough cookie.";
+    playerWins++;
+
+    if (playerWins < 5) {
+      return "Cometh hither and I'll bite your leg off!";
+    } else {
+      return "Curse ye! Thy are victorious!";
+    }
+  }
+
+  if ((x = "lose")) {
+    computerWins++;
+
+    if (computerWins < 5) {
+      return "I outclassed you, rapscallion! Bringeth it!";
+    } else {
+      return "Make off, thy scallywag, I have vanquished ye!";
+    }
   }
 }
 
@@ -47,40 +64,32 @@ returns nothing
 
 function playRound(playerSelection) {
   const computerSelection = computerPlay();
-  // const playerSelection = userPlay();
-
-  console.log(
-    "Player: " + playerSelection + " | Computer: " + computerSelection
-  );
 
   switch (playerSelection) {
     case computerSelection:
-      console.log("TIE! Play again!");
+      return "'Tis a draw! En garde!";
       break;
     case "rock":
       if (computerSelection == "paper") {
-        winOrLose("win");
+        return winOrLose("win");
       } else {
-        winOrLose("lose");
+        return winOrLose("lose");
       }
       break;
     case "paper":
       if (computerSelection == "rock") {
-        winOrLose("win");
+        return winOrLose("win");
       } else {
-        winOrLose("lose");
+        return winOrLose("lose");
       }
       break;
     case "scissors":
       if (computerSelection == "rock") {
-        winOrLose("lose");
+        return winOrLose("lose");
       } else {
-        winOrLose("win");
+        return winOrLose("win");
         break;
       }
-    default:
-      console.log("Yeah...that's not a valid option.");
-      return "Yeah...that's not a valid option.";
   }
 }
 
@@ -89,10 +98,10 @@ function playRound(playerSelection) {
  * Add listener events to all img objects, add the function
  */
 
- const images = document.querySelectorAll("img");
+const images = document.querySelectorAll("img");
 
- images.forEach((image) => {
-     image.addEventListener("click", (e) => {
-         playRound(e.target.id);
-     })
- })
+images.forEach((image) => {
+  image.addEventListener("click", (e) => {
+    playRound(e.target.id);
+  });
+});
