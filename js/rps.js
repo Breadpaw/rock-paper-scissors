@@ -19,28 +19,6 @@ function computerPlay() {
 
 /*
 
-userPlay gets the user Input and returns an lower case String
-
-*/
-
-function userPlay() {
-  let userInput;
-
-  // in case player selected "cancel"
-  if ((userInput = prompt("What'll it be, muchacho?") == null)) {
-    console.log(
-      "Well...if you don't wanna play, that's fine I guess...-sniff-"
-    );
-    return "Well...if you don't wanna play, that's fine I guess...-sniff-";
-  } else {
-    userInput = userInput.toLowerCase();
-
-    return userInput;
-  }
-}
-
-/*
-
 winOrLose
 
 takes a String argument, evaluates Win or Lose and returns a winning or losing String
@@ -49,12 +27,10 @@ takes a String argument, evaluates Win or Lose and returns a winning or losing S
 
 function winOrLose(x) {
   if (x == "win") {
-    console.log("You win. You are awesome.");
     alert("Curse ye! Thy are victorious!");
     return "You win. You are awesome.";
   } else {
-    console.log("You tried. You failed. Tough cookie.");
-    alert("Vacate these premises, you scallywag, I have vanquished you!");
+    alert("Make off, thy scallywag, I have vanquished ye!");
     return "You tried. You failed. Tough cookie.";
   }
 }
