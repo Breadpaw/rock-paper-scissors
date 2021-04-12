@@ -88,7 +88,6 @@ function playRound(playerSelection) {
         return winOrLose("lose");
       } else {
         return winOrLose("win");
-        break;
       }
   }
 }
@@ -102,6 +101,14 @@ const images = document.querySelectorAll("img");
 
 images.forEach((image) => {
   image.addEventListener("click", (e) => {
-    playRound(e.target.id);
+    let res = playRound(e.target.id);
+
+    // Update Joseph's response
+    let response = document.querySelector("#response");
+    response.textContent = res;
+
+    // Update the score board
+    let playerScore = document.querySelector("#player-score");
+    let josephScore = document.querySelector("#joseph-score");
   });
 });
