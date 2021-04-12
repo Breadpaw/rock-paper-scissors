@@ -45,9 +45,9 @@ function winOrLose(x) {
     computerWins++;
 
     if (computerWins < 5) {
-      return "I outclassed you, rapscallion! Bringeth it!";
+      return "I outclassed thee, rapscallion! Bringeth it!";
     } else {
-      return "Make off, thy scallywag, I have vanquished ye!";
+      return "Make off, thy scallywag, I have triumphed!";
     }
   }
 }
@@ -110,5 +110,9 @@ images.forEach((image) => {
     // Update the score board
     let playerScore = document.querySelector("#player-score");
     let josephScore = document.querySelector("#joseph-score");
+
+    playerScore.textContent = playerWins;
+    josephScore.textContent = computerWins;
+
   });
 });
