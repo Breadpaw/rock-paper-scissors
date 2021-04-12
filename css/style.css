@@ -111,3 +111,10 @@ img {
 img:hover {
   cursor: pointer;
 }
+
+#response {
+    margin-top: 50px;
+
+    display: block;
+    font-size: 25px;
+}
