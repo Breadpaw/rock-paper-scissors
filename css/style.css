@@ -1,56 +1,113 @@
+/* Variables */
+
+:root {
+  --container-width: 1400px;
+  --container-height: calc(var(--container-width) * 0.56);
+
+  --container-quarter-width: calc(var(--container-width)/4);
+
+  --container-third-height: calc(var(--container-height)/3);
+}
+
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    background:black;
+  background: black;
 
-    font-family:'zapfino';
-    color: white;
+  font-family: "zapfino";
+  color: white;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header {
-    margin-top: 25px;
-    text-align: center;
+  margin-top: 25px;
+  text-align: center;
 }
 
 .container {
+  width: var(--container-width);
+  height: var(--container-height); /* can I make this a calculated value? */
 
-    width: 1400px;
-    height: 787px; /* can I make this a calculated value? */
+  border-radius: 10px;
 
-    border-radius: 10px;
+  background: url("../img/jd.jpg");
+  background-size: 102%; /* slightly oversized bc of borde radius*/
+  background-repeat: no-repeat;
+  background-position: -10px -10px;
 
-    background:url("../img/jd.jpg");
-    background-size: 102%; /* slightly oversized bc of borde radius*/
-    background-repeat: no-repeat;
-    background-position: -10px -10px;
+  color: whitesmoke;
 
-    color:whitesmoke;
+  display: grid;
+  grid-template:
+    "rock       player      totals      joseph"
+    "paper      text        text        empty"
+    "scissors   text        text        empty";
 
-    display: flex;
-    flex-direction: row;
+  grid-template-columns: var(--container-quarter-width)
+                         var(--container-quarter-width)
+                         var(--container-quarter-width)
+                         var(--container-quarter-width);
+  grid-template-rows:    var(--container-third-height)
+                         var(--container-third-height)
+                         var(--container-third-height);
 }
 
-.left {
-    width: 30%;
-    display: flex;
-    
-    flex-direction: column;
-    justify-content:space-around;
-    align-items:flex-start;
+/* Grid Areas */
+
+.rock {
+  grid-area: rock;
 }
-.right {
-    padding-top: 40px;
-    padding-left: 0px;
-    width: 70%;
+.paper {
+  grid-area: paper;
+}
+.scissors {
+  grid-area: scissors;
+}
+.text {
+  grid-area: text;
+  /* align-self: center; */
+}
+
+.player {
+  grid-area: player;
+}
+.totals {
+  grid-area: totals;
+}
+.joseph {
+  grid-area: joseph;
+}
+
+/* Score Areas */
+
+.score {
+    margin-top: 25px;
+
+    font-size: 25px;
+    text-align: center;
+}
+
+/* Grid Images CSS */
+
+.gridimg {
+  height: calc(var(--container-height) / 3);
+
+  display: flex;
 }
 
 img {
-    margin: 0 auto;
-    display: block;
-    width: 40%;
+  /* height: calc(var(--container-height) / 4); */
+  max-width: 180px;
+
+  margin: auto;
+
+  display: block;
+}
+
+img:hover {
+  cursor: pointer;
 }
