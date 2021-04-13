@@ -126,23 +126,20 @@ const images = document.querySelectorAll("img");
  */
 images.forEach((image) => {
   image.addEventListener("click", function weaponClick(e) {
-    let res = playRound(e.target.id);
+    if (!anyoneWon()) {
+      let res = playRound(e.target.id);
 
-    // Update Joseph's response
-    let response = document.querySelector("#response");
-    response.textContent = res;
+      // Update Joseph's response
+      let response = document.querySelector("#response");
+      response.textContent = res;
 
-    // Update the score board
-    let playerScore = document.querySelector("#player-score");
-    let josephScore = document.querySelector("#joseph-score");
+      // Update the score board
+      let playerScore = document.querySelector("#player-score");
+      let josephScore = document.querySelector("#joseph-score");
 
-    playerScore.textContent = playerWins;
-    josephScore.textContent = computerWins;
-
-    // Deactivate the game controls if anyone won
-
-    // TODO WHY DOES THIS ONLY WORK ON ONE IMAGE?
-    if (anyoneWon()) {
+      playerScore.textContent = playerWins;
+      josephScore.textContent = computerWins;
+    } else if (anyoneWon()) {
       images.forEach((element) => {
         element.style.cursor = "unset";
       });
