@@ -34,6 +34,10 @@ takes a String argument, evaluates Win or Lose and returns a winning or losing S
 */
 
 function winOrLose(x) {
+  if(playerWon || josephWon) {
+    continue;
+  }
+
   if (x == "win") {
     playerWins++;
 
@@ -45,7 +49,7 @@ function winOrLose(x) {
     }
   }
 
-  if ((x = "lose")) {
+  if (x == "lose") {
     computerWins++;
 
     if (computerWins < 5) {
@@ -137,11 +141,10 @@ images.forEach((image) => {
     josephScore.textContent = computerWins;
 
     // Deactivate the game controls if anyone won
+
     // TODO WHY DOES THIS ONLY WORK ON ONE IMAGE?
     if (anyoneWon()) {
       images.forEach((element) => {
-        element.removeEventListener("click", weaponClick);
-        console.log("removed listener from" + element);
         element.style.cursor = "unset";
       });
     }
