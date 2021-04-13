@@ -34,29 +34,28 @@ takes a String argument, evaluates Win or Lose and returns a winning or losing S
 */
 
 function winOrLose(x) {
-  if(playerWon || josephWon) {
-    continue;
-  }
+  // If someone hasn't won yet, play the game
+  if (!anyoneWon()) {
+    if (x == "win") {
+      playerWins++;
 
-  if (x == "win") {
-    playerWins++;
-
-    if (playerWins < 5) {
-      return "Cometh hither and I'll bite your leg off!";
-    } else {
-      playerWon = true;
-      return "Curse ye! Thy are victorious!";
+      if (playerWins < 5) {
+        return "Cometh hither and I'll bite your leg off!";
+      } else {
+        playerWon = true;
+        return "Curse ye! Thy are victorious!";
+      }
     }
-  }
 
-  if (x == "lose") {
-    computerWins++;
+    if (x == "lose") {
+      computerWins++;
 
-    if (computerWins < 5) {
-      return "I outclassed thee, rapscallion! Bringeth it!";
-    } else {
-      josephWon = true;
-      return "Make off, thy scallywag, I have triumphed!";
+      if (computerWins < 5) {
+        return "I outclassed thee, rapscallion! Bringeth it!";
+      } else {
+        josephWon = true;
+        return "Make off, thy scallywag, I have triumphed!";
+      }
     }
   }
 }
