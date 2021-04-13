@@ -4,9 +4,10 @@
   --container-width: 1400px;
   --container-height: calc(var(--container-width) * 0.56);
 
-  --container-quarter-width: calc(var(--container-width)/4);
+  --container-quarter-width: calc(var(--container-width) / 4);
+  --container-third-width: calc(var(--container-width) / 3);
 
-  --container-third-height: calc(var(--container-height)/3);
+  --container-third-height: calc(var(--container-height) / 3);
 }
 
 body {
@@ -47,13 +48,15 @@ body {
     "paper      text        text        empty"
     "scissors   text        text        empty";
 
-  grid-template-columns: var(--container-quarter-width)
-                         var(--container-quarter-width)
-                         var(--container-quarter-width)
-                         var(--container-quarter-width);
-  grid-template-rows:    var(--container-third-height)
-                         var(--container-third-height)
-                         var(--container-third-height);
+  grid-template-columns:
+    var(--container-quarter-width)
+    var(--container-quarter-width)
+    var(--container-quarter-width)
+    var(--container-quarter-width);
+  grid-template-rows:
+    var(--container-third-height)
+    var(--container-third-height)
+    var(--container-third-height);
 }
 
 /* Grid Areas */
@@ -69,6 +72,8 @@ body {
 }
 .text {
   grid-area: text;
+
+  font-size: 23px;
   /* align-self: center; */
 }
 
@@ -85,10 +90,10 @@ body {
 /* Score Areas */
 
 .score {
-    margin-top: 25px;
+  margin-top: 25px;
 
-    font-size: 25px;
-    text-align: center;
+  font-size: 25px;
+  text-align: center;
 }
 
 /* Grid Images CSS */
@@ -113,8 +118,67 @@ img:hover {
 }
 
 #response {
-    margin-top: 50px;
+  margin-top: 30px;
 
-    display: block;
-    font-size: 25px;
+  display: block;
+  font-size: 25px;
+}
+
+@media only screen and (max-width: 1600px) {
+  :root {
+    --container-width: 1000px;
+  }
+
+  img {
+    max-width: 110px;
+  }
+
+  .score {
+    font-size: 20px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  :root {
+    --container-width: 100%;
+  }
+
+  .header h1 {
+    font-size: 23px;
+  }
+
+  .container {
+    border-radius: 0px;
+
+    grid-template-areas:
+      "text text text"
+      "text text text"
+      "rock paper scissors";
+
+    grid-template-columns:
+      var(--container-third-width)
+      var(--container-third-width)
+      var(--container-third-width);
+  }
+
+  .text {
+    padding: 25px 10px;
+    font-size: 13px;
+  }
+
+  #response {
+    margin-top: 15px;
+    font-size: 16px;
+
+    text-shadow: 0px 0px 5px gray;
+  }
+
+  .gridimg {
+    margin-top: calc(var(--container-third-height) * 2);
+    /* align-self: center; */
+  }
 }
