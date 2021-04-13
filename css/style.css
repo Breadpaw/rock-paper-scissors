@@ -154,6 +154,8 @@ img:hover {
   .container {
     border-radius: 0px;
 
+    background-size: 100%;
+
     grid-template-areas:
       "text text text"
       "text text text"
@@ -166,7 +168,7 @@ img:hover {
   }
 
   .text {
-    padding: 25px 10px;
+    margin: 25px 10px;
     font-size: 13px;
   }
 
