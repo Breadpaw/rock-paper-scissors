@@ -1,7 +1,8 @@
-# rock-paper-scissors
-The old rock, paper, scissors game. But digital. And for The Odin Project.
+# Rock, Paper, Scissors
 
-** THINGS TO DO **
+The old rock, paper, scissors game. The really old one. But digital. And for The Odin Project.
+
+## THINGS TO DO
 
 - Make a game class to call it's functions.
 - Make the pictures smaller and easier to load.
