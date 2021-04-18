@@ -1,26 +1,26 @@
 // Variables
 
-let playerWins = 0;
-let computerWins = 0;
+let playerNumberOfWins = 0;
+let josephNumberOfWins = 0;
 
 let playerWon = false;
 let josephWon = false;
 
 /*
 
-computerPlay
+josephChoosesWeapon
 
 Randomly picks rock, paper or scissors and returns a String value
 
 */
 
-function computerPlay() {
+function josephChoosesWeapon() {
   // array with weaponOptions
-  let weaponOptions = ["rock", "paper", "scissors"];
+  const weaponOptions = ["rock", "paper", "scissors"];
 
   // generate random number 0-2
   // random = between 0 and 1 so multiply by range and round it
-  let randNum = Math.round(Math.random() * 2);
+  const randNum = Math.round(Math.random() * 2);
 
   return weaponOptions[randNum];
 }
@@ -37,9 +37,9 @@ function winOrLose(x) {
   // If someone hasn't won yet, play the game
   if (!ifAnyoneWon()) {
     if (x == "win") {
-      playerWins++;
+      playerNumberOfWins++;
 
-      if (playerWins < 5) {
+      if (playerNumberOfWins < 5) {
         return "Cometh hither and I'll bite your leg off!";
       } else {
         playerWon = true;
@@ -48,9 +48,9 @@ function winOrLose(x) {
     }
 
     if (x == "lose") {
-      computerWins++;
+      josephNumberOfWins++;
 
-      if (computerWins < 5) {
+      if (josephNumberOfWins < 5) {
         return "I outclassed thee, rapscallion! Bringeth it!";
       } else {
         josephWon = true;
@@ -76,7 +76,7 @@ function ifAnyoneWon() {
 
 /*
 
-playRound
+playTheGame
 
 Asks input from the user and computes that of the computer and compares them, then calls the winOrLose function
 
@@ -84,8 +84,8 @@ returns nothing
 
 */
 
-function playRound(playerSelection) {
-  const computerSelection = computerPlay();
+function playTheGame(playerSelection) {
+  const computerSelection = josephChoosesWeapon();
 
   switch (playerSelection) {
     case computerSelection:
@@ -114,31 +114,21 @@ function playRound(playerSelection) {
   }
 }
 
-/**
- * THIS IS WHERE THE DOM STARTS
- * Add listener events to all img objects, add the function
- */
-
 const images = document.querySelectorAll("img");
 
-/**
- * add event listener to all images
- */
 images.forEach((image) => {
   image.addEventListener("click", function weaponClick(e) {
     if (!ifAnyoneWon()) {
-      let res = playRound(e.target.id);
+      const gameOutcome = playTheGame(e.target.id);
 
-      // Update Joseph's response
-      let response = document.querySelector("#response");
-      response.textContent = res;
+      const responseElement = document.querySelector("#response");
+      responseElement.textContent = gameOutcome;
 
-      // Update the score board
-      let playerScore = document.querySelector("#player-score");
-      let josephScore = document.querySelector("#joseph-score");
+      const playerScore = document.querySelector("#player-score");
+      const josephScore = document.querySelector("#joseph-score");
 
-      playerScore.textContent = playerWins;
-      josephScore.textContent = computerWins;
+      playerScore.textContent = playerNumberOfWins;
+      josephScore.textContent = josephNumberOfWins;
     } else if (ifAnyoneWon()) {
       images.forEach((element) => {
         element.style.cursor = "unset";
