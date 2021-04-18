@@ -15,14 +15,14 @@ Randomly picks rock, paper or scissors and returns a String value
 */
 
 function computerPlay() {
-  // array with options
-  let options = ["rock", "paper", "scissors"];
+  // array with weaponOptions
+  let weaponOptions = ["rock", "paper", "scissors"];
 
   // generate random number 0-2
   // random = between 0 and 1 so multiply by range and round it
   let randNum = Math.round(Math.random() * 2);
 
-  return options[randNum];
+  return weaponOptions[randNum];
 }
 
 /*
@@ -35,7 +35,7 @@ takes a String argument, evaluates Win or Lose and returns a winning or losing S
 
 function winOrLose(x) {
   // If someone hasn't won yet, play the game
-  if (!anyoneWon()) {
+  if (!ifAnyoneWon()) {
     if (x == "win") {
       playerWins++;
 
@@ -64,7 +64,7 @@ function winOrLose(x) {
  * check if anyone won the match
  */
 
-function anyoneWon() {
+function ifAnyoneWon() {
   if (playerWon) {
     return true;
   } else if (josephWon) {
@@ -126,7 +126,7 @@ const images = document.querySelectorAll("img");
  */
 images.forEach((image) => {
   image.addEventListener("click", function weaponClick(e) {
-    if (!anyoneWon()) {
+    if (!ifAnyoneWon()) {
       let res = playRound(e.target.id);
 
       // Update Joseph's response
@@ -139,7 +139,7 @@ images.forEach((image) => {
 
       playerScore.textContent = playerWins;
       josephScore.textContent = computerWins;
-    } else if (anyoneWon()) {
+    } else if (ifAnyoneWon()) {
       images.forEach((element) => {
         element.style.cursor = "unset";
       });
